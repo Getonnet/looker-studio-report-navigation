@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Looker Studio Report Navigation</title>
+  <script>
+    // Define the report pages and their corresponding URLs
+    const reportPages = {
+      "Oversikt": "https://lookerstudio.google.com/u/0/reporting/e3748d2c-f523-479e-b374-c5b5e7c52a2e/page/sPKDD",
+      "Tabell": "https://lookerstudio.google.com/u/0/reporting/e3748d2c-f523-479e-b374-c5b5e7c52a2e/page/p_52ztn77p2c",
+      "Tidslinje": "https://lookerstudio.google.com/u/0/reporting/e3748d2c-f523-479e-b374-c5b5e7c52a2e/page/p_dwfwna8p2c",
+      "Filter": "https://lookerstudio.google.com/u/0/reporting/e3748d2c-f523-479e-b374-c5b5e7c52a2e/page/p_gav8g5st3c"
+    };
+
+    // Function to handle page navigation when a selection is made
+    function navigateToPage() {
+      const selectedPage = document.getElementById("pageSelector").value;
+      const pageUrl = reportPages[selectedPage];
+
+      // If the URL is valid, navigate to the selected page
+      if (pageUrl) {
+        window.location.href = pageUrl;
+      }
+    }
+
+    // Function to detect and set the current page in the dropdown
+    function setCurrentPage() {
+      const currentUrl = window.location.href;
+
+      // Loop through the reportPages to find the matching URL
+      for (const [pageName, pageUrl] of Object.entries(reportPages)) {
+        if (currentUrl.includes(pageUrl)) {
+          document.getElementById("pageSelector").value = pageName; // Set dropdown to the current page
+          break;
+        }
+      }
+    }
+
+    // Call the setCurrentPage function when the page loads
+    window.onload = setCurrentPage;
+  </script>
+</head>
+<body>
+  <!-- Dropdown for selecting a report page -->
+  <select id="pageSelector" onchange="navigateToPage()">
+    <option value="" disabled>Select a page</option>
+    <option value="Oversikt">Oversikt</option>
+    <option value="Tabell">Tabell</option>
+    <option value="Tidslinje">Tidslinje</option>
+    <option value="Filter">Filter</option>
+  </select>
+</body>
+</html>
