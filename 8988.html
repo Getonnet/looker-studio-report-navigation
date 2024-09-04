@@ -3,37 +3,39 @@
 <head>
   <title>Looker Studio Report Navigation</title>
   <style>
-    /* Make the entire background of the embedded window transparent */
+    /* Set the background color to #232323 */
     body {
-      background-color: transparent;
+      background-color: #232323;
     }
 
     /* Dropdown styling */
     #pageSelector {
       font-family: 'Roboto', sans-serif; /* Set font to Roboto */
       font-size: 18px; /* Set font size */
-      outline: none; /* Remove outline */
-      border: 1px solid #ccc; /* Add a subtle border */
-      border-radius: 4px; /* Add slight rounding */
-      padding: 8px; /* Add padding inside the dropdown */
-      background-color: white; /* Ensure the dropdown has a white background */
-      color: #333; /* Set text color */
+      font-weight: bold; /* Make the font bold */
+      color: #ffffff; /* Set the text color to white */
+      background-color: #232323; /* Set the dropdown background color */
+      border: none; /* Remove the border */
+      outline: none; /* Remove the outline */
+      padding: 8px; /* Add some padding inside the dropdown */
       width: 100%; /* Ensure the dropdown takes full width of its container */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add subtle shadow */
     }
 
-    /* Hover effect for better user interaction */
+    /* Remove any default shadow or outline on focus or hover */
+    #pageSelector:focus,
     #pageSelector:hover {
-      border-color: #888; /* Change border color on hover */
+      border: none; /* No border on hover */
+      outline: none; /* No outline on focus */
+      box-shadow: none; /* Remove any shadow */
     }
   </style>
   <script>
     // Define the report pages and their corresponding URLs
     const reportPages = {
-      "Oversikt": "https://datastudio.google.com/reporting/your_report_id/page/oversikt",
-      "Tabell": "https://datastudio.google.com/reporting/your_report_id/page/tabell",
-      "Tidslinje": "https://datastudio.google.com/reporting/your_report_id/page/tidslinje",
-      "Filter": "https://datastudio.google.com/reporting/your_report_id/page/filter"
+      "Oversikt": "https://lookerstudio.google.com/u/0/reporting/e3748d2c-f523-479e-b374-c5b5e7c52a2e/page/sPKDD",
+      "Tabell": "https://lookerstudio.google.com/u/0/reporting/e3748d2c-f523-479e-b374-c5b5e7c52a2e/page/p_52ztn77p2c",
+      "Tidslinje": "https://lookerstudio.google.com/u/0/reporting/e3748d2c-f523-479e-b374-c5b5e7c52a2e/page/p_dwfwna8p2c",
+      "Filter": "https://lookerstudio.google.com/u/0/reporting/e3748d2c-f523-479e-b374-c5b5e7c52a2e/page/p_gav8g5st3c"
     };
 
     // Function to handle page navigation when a selection is made
