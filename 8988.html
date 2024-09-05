@@ -44,20 +44,28 @@
       const selectedPage = document.getElementById("pageSelector").value;
       const pageUrl = reportPages[selectedPage];
 
+      console.log("Selected Page:", selectedPage);
+      console.log("Page URL:", pageUrl);
+
       // If the URL is valid, navigate to the selected page in the parent window (full report)
       if (pageUrl) {
+        console.log("Navigating to:", pageUrl);
         window.top.location.href = pageUrl;
+      } else {
+        console.log("No matching URL found for the selected page.");
       }
     }
 
     // Function to detect and set the current page in the dropdown
     function setCurrentPage() {
       const currentUrl = window.top.location.href; // Use top-level window URL for comparison
+      console.log("Current URL:", currentUrl);
 
       // Loop through the reportPages to find the matching URL
       for (const [pageName, pageUrl] of Object.entries(reportPages)) {
         if (currentUrl.includes(pageUrl)) {
           document.getElementById("pageSelector").value = pageName; // Set dropdown to the current page
+          console.log("Current page set to:", pageName);
           break;
         }
       }
