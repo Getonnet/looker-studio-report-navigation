@@ -52,7 +52,7 @@
 
     // Function to detect and set the current page in the dropdown
     function setCurrentPage() {
-      const currentUrl = window.location.href;
+      const currentUrl = window.top.location.href; // Use top-level window URL for comparison
 
       // Loop through the reportPages to find the matching URL
       for (const [pageName, pageUrl] of Object.entries(reportPages)) {
